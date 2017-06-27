@@ -1,0 +1,22 @@
+version: 2
+jobs:
+  build:
+    working_directory: ~/php7-v8js
+    docker:
+      - image: docker:17.05.0-ce-git
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run:
+          name: Build application Docker image
+          command: |
+            docker build -t madecomfyau/php7-v8js .
+      - run:
+          name: Login to Dockerhub
+          command: |
+            docker login --username=$DOCKER_HUB_USER --password=$DOCKER_HUB_PASS
+      - deploy:
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              docker push madecomfyau/php7-v8js:latest
+            fi

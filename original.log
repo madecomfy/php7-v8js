@@ -1,0 +1,6 @@
+commit 573f9fbbd511cc267213846cd95022e4d851602e
+Author: Tom Jowitt <tomjowitt@gmail.com>
+Date:   Tue Jun 27 16:21:06 2017 +1000
+
+    Created initial Docker image and build system
+
