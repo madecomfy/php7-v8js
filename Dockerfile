@@ -3,7 +3,8 @@ FROM php:7.1-fpm
 LABEL maintainer "tom@madecomfy.com.au"
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    zlib1g-dev libicu-dev g++ apt-utils libv8-dev g++ cpp
+    build-essential zlib1g-dev libicu-dev \
+    g++ cpp apt-utils libv8-dev
 
 COPY docker-php-pecl-install /usr/local/bin/
 
