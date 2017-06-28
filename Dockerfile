@@ -2,7 +2,7 @@ FROM ubuntu:trusty
 
 LABEL maintainer "tom@madecomfy.com.au"
 
-RUN apt-get update && apt install -y --no-install-recommends \
+RUN apt-get update && apt-get install -y --no-install-recommends \
     software-properties-common build-essential \
     git python libglib2.0-dev \
     curl wget libcurl3-openssl-dev
@@ -29,3 +29,6 @@ RUN cd /tmp && \
     make install
 
 RUN apt-get update && apt-get upgrade --force-yes -y
+
+EXPOSE 9000
+CMD ["php-fpm"]
