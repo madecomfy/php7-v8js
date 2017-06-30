@@ -36,6 +36,8 @@ RUN rm -f /etc/php/7.1/fpm/pool.d/*
 COPY conf/pool.d/www.conf /etc/php/7.1/fpm/pool.d/www.conf
 COPY conf/pool.d/zz-docker.conf /etc/php/7.1/fpm/pool.d/zz-docker.conf
 COPY conf/php-fpm.conf /etc/php/7.1/fpm/php-fpm.conf
+COPY conf/php.ini /etc/php/7.1/fpm/php.ini
+COPY conf/cli.ini /etc/php/7.1/cli/php.ini
 
 RUN service php7.1-fpm start
 
