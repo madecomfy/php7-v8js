@@ -2,6 +2,9 @@ FROM ubuntu:trusty
 
 LABEL maintainer "tom@madecomfy.com.au"
 
+# Set the env variable DEBIAN_FRONTEND to noninteractive
+ENV DEBIAN_FRONTEND noninteractive
+
 RUN apt-get update && apt-get install -y --no-install-recommends \
     apt-utils gcc libsasl2-dev lib32z1-dev libldap2-dev \
     python-software-properties software-properties-common build-essential \
