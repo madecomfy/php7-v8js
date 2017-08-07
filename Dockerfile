@@ -28,6 +28,14 @@ RUN cd /tmp && \
     make test && \
     make install
 
+RUN curl -sL https://deb.nodesource.com/setup_8.x | sudo bash - && \
+    apt install -y nodejs && \
+    curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
+    echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list && \
+    apt-get update && apt-get install yarn && \
+    yarn global add gulp-cli && \
+    yarn global add webpack
+
 RUN apt-get update && apt-get upgrade --force-yes -y
 
 RUN mkdir -p /var/www/html
