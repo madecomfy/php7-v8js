@@ -13,7 +13,7 @@ RUN add-apt-repository ppa:pinepain/libv8-5.2 -y && \
 
 RUN apt-get install -y --force-yes \
     php7.1-fpm php7.1-dev \
-    php7.1-mysql php7.1-xml php-curl php-intl php-pear
+    php7.1-mysql php7.1-xml php-curl php-intl php-pear php-mbstring
 
 RUN pecl install xdebug
 
