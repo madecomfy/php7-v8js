@@ -6,7 +6,7 @@ LABEL maintainer "tom@madecomfy.com.au"
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    apt-utils gcc libsasl2-dev lib32z1-dev libldap2-dev \
+    apt-utils gcc libsasl2-dev lib32z1-dev libldap2-dev libssl-dev openssl \
     python-software-properties software-properties-common build-essential \
     apt-transport-https git python libglib2.0-dev \
     curl wget git zip unzip libcurl3-openssl-dev
