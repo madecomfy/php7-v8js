@@ -53,14 +53,14 @@ RUN apt-get update && apt-get upgrade --force-yes -y
 
 RUN mkdir -p /var/www/html
 
-RUN rm -f /etc/php/7.1/fpm/pool.d/*
-COPY conf/pool.d/www.conf /etc/php/7.1/fpm/pool.d/www.conf
-COPY conf/pool.d/zz-docker.conf /etc/php/7.1/fpm/pool.d/zz-docker.conf
-COPY conf/php-fpm.conf /etc/php/7.1/fpm/php-fpm.conf
-COPY conf/php.ini /etc/php/7.1/fpm/php.ini
-COPY conf/cli.ini /etc/php/7.1/cli/php.ini
+RUN rm -f /etc/php/7.2/fpm/pool.d/*
+COPY conf/pool.d/www.conf /etc/php/7.2/fpm/pool.d/www.conf
+COPY conf/pool.d/zz-docker.conf /etc/php/7.2/fpm/pool.d/zz-docker.conf
+COPY conf/php-fpm.conf /etc/php/7.2/fpm/php-fpm.conf
+COPY conf/php.ini /etc/php/7.2/fpm/php.ini
+COPY conf/cli.ini /etc/php/7.2/cli/php.ini
 
-RUN service php7.1-fpm start
+RUN service php7.2-fpm start
 
 EXPOSE 9000
-CMD ["php-fpm7.1", "--nodaemonize", "--force-stderr"]
+CMD ["php-fpm7.2", "--nodaemonize", "--force-stderr"]
